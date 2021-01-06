@@ -1,17 +1,30 @@
 {% extends "base.html" %} {% block content %}
 <center>
 
-<h2><b>Select the Image</b></h2>
-<h8>Upload the image you want to classify.<br>
-This has been made to classify the image as either Cat or Dog.</h8>
+<h2 id="header"><b>Select the Image</b></h2>
+<h7 style="color: grey;">Upload the image you want to classify.<br>
+This has been made to classify the image as either Cat or Dog.</h7>
 <br>
 <div>
-    <form id="upload-file" method="post" enctype="multipart/form-data">
+    <!-- Image uploader wraped with form tag -->
+    <div class="image-upload">
+        <form id="upload-file" method="post" enctype="multipart/form-data">
+            <div class="image-edit">
+                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+                <label for="imageUpload"></label>
+            </div>
+            <div class="image-preview">
+                <div id="imagePreview" style="background-image: url('/static/catdog.jpg');">
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- <form id="upload-file" method="post" enctype="multipart/form-data">
         <label for="imageUpload" class="upload-label">
             Choose...
         </label>
         <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-    </form>
+    </form>-->
 
     <div class="image-section" style="display:none;">
         <div class="img-preview">
@@ -24,7 +37,7 @@ This has been made to classify the image as either Cat or Dog.</h8>
     </div>
 
     <div class="loader" style="display:none;"></div>
-    <div class="row justify-content-center"> <div class="col-12 col-lg-8">
+    <div class="row justify-content-center" id = "table-container"> <div class="col-12 col-lg-8">
                   <table id="results" class="table" style="display:none;text-align:center">
                     <thead>
                        <tr>
