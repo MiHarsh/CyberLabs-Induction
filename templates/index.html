@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block content %}
+<center>
+
+<h2><b>Select the Image</b></h2>
+<h8>Upload the image you want to classify.<br>
+This has been made to classify the image as either Cat or Dog.</h8>
+<br>
+<div>
+    <form id="upload-file" method="post" enctype="multipart/form-data">
+        <label for="imageUpload" class="upload-label">
+            Choose...
+        </label>
+        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+    </form>
+
+    <div class="image-section" style="display:none;">
+        <div class="img-preview">
+            <div id="imagePreview">
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict!</button>
+        </div>
+    </div>
+
+    <div class="loader" style="display:none;"></div>
+    <div class="row"> <div class="col-12 col-lg-8">
+                  <table id="results" class="table" style="display:none;margin: 0 190;text-align:center">
+                    <thead>
+                       <tr>
+                       <td style="border:none;"><b>Category</b></td>
+                       <td style="border:none;"><b>Probability</b></td>
+                       </tr>                            
+                    </thead>
+                    <tbody>
+                     
+                       </tbody>
+                     </table>
+                 </div>
+               </div>
+
+</div>
+</center>
+{% endblock %}
